@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>横向滑动</title>
+    <style type="text/css">
+        body {
+            width: 640px;
+            height: 1030px;
+            margin: 0 auto;
+        }
+
+        .slide-box {
+            position: relative;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            /* display: -webkit-box; */
+            overflow-x: scroll;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        /*去掉滚动条*/
+        .slide-box ::-webkit-scrollbar {
+            width: 0;
+            height: 0;
+            display: none;
+        }
+        .bg{
+            position: absolute;
+        }
+        .click{
+            position: absolute;
+            left: -160px;
+            top:-63px ;
+            /* width: 300px;
+            height: 300px; */
+        }
+        .active{
+            position: absolute;
+            left: -160px;
+            top:-63px ;
+            filter: drop-shadow(0 0 20px yellow);
+        }
+        .introduction{
+            position: absolute;
+            left: -440px;
+            top: -60px;
+            display: none;
+        }
+        #btn{
+            position: absolute;
+            left: 227px;
+            top: 422px;
+            /* border:1px solid black; */
+            width: 60px;
+            height: 20px;
+        }
+    </style>
+</head>
+
+<body onload="init()">
+    <div class="slide-box">
+        <img class = 'bg' src="1.jpg">
+        <img class = 'click' src="house1.png" onclick="clickHouse(1)">
+        <img class = 'introduction' src = 'intro1.png'>
+        <div id = 'btn' onclick="shift()"></div>
+    </div>
+    <script>
+        function init(){
+            clickHouse(id)
+            clickBtn()
+        }
+        function clickHouse(id){
+            let house = document.getElementsByClassName('click')
+            let intro = document.getElementsByClassName('introduction')
+            switch(id){
+                case 1: house[id-1].className = 'active'
+                        intro[id-1].style.display = 'block'
+            }
+        }
+        function shift(){
+            window.location.href = '暂时/inside.html' 
+        }
+    </script>
+</body>
+
+</html>
